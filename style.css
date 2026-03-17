@@ -7,25 +7,39 @@
 
 /* ================= ROOT VARIABLES ================= */
 :root {
-    --primary: #0f4c75;
-    --accent: #38bdf8;
-    --dark: #0f172a;
-    --light: #f8fafc;
-    --text: #374151;
+    --primary: #1F9EB6;
+    /* Main Brand Teal */
+    --dark: #3F5C66;
+    /* Deep Slate */
+    --light: #F2F6F7;
+    /* Soft Mist Background */
+    --accent: #BFEAF0;
+    /* Light Accent */
+    --text: #3F5C66;
 }
+
 
 /* ================= BODY ================= */
 body {
     font-family: "Segoe UI", sans-serif;
     line-height: 1.6;
     color: var(--text);
-    background: #ffffff;
+    background: var(--light);
 }
+
 
 /* ================= NAVBAR ================= */
 header {
-    background: #f9fbfd;
-    border-bottom: 1px solid #e5e7eb;
+    background: #ffffff;
+    border-bottom: 1px solid #e6eef1;
+}
+
+.brand-ul li a {
+    color: var(--dark);
+}
+
+.brand-ul li a:hover {
+    color: var(--primary);
 }
 
 
@@ -246,13 +260,24 @@ header {
 }
 
 /* ================= FOOTER ================= */
-footer {
-    background: #020617;
-    color: #cbd5f5;
-    text-align: center;
-    padding: 20px;
-    font-size: 0.9rem;
+.footer {
+    background: var(--dark);
+    color: #ffffff;
+    padding: 60px 20px 20px;
 }
+
+.footer-links a {
+    color: #BFEAF0;
+}
+
+.footer-links a:hover {
+    color: #ffffff;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
 
 /* ================= WHATSAPP FLOAT ================= */
 .whatsapp-float {
@@ -427,11 +452,6 @@ img {
     display: block;
 }
 
-.footer {
-    background: #020617;
-    color: #cbd5f5;
-    padding-top: 70px;
-}
 
 .footer-container {
     max-width: 1200px;
@@ -468,7 +488,6 @@ img {
 }
 
 .footer-links a {
-    color: #cbd5f5;
     text-decoration: none;
     font-size: 0.95rem;
 }
@@ -482,11 +501,10 @@ img {
 }
 
 .footer-bottom {
-    border-top: 1px solid #1e293b;
     text-align: center;
     padding: 20px;
     font-size: 0.85rem;
-    color: #94a3b8;
+
 }
 
 * {
@@ -796,7 +814,7 @@ header {
 
 .stat h3 {
     font-size: 2rem;
-    color: #0a7cff;
+    background: var(--primary);
     margin-bottom: 5px;
 }
 
@@ -968,35 +986,7 @@ header {
     }
 }
 
-#services {
-    background:
-        linear-gradient(rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.6)),
-        url(media/service.jfif) center/cover no-repeat;
-
-}
-
-#prices {
-    background:
-        linear-gradient(rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.6)),
-        url(media/price\ icon.jfif) center/cover no-repeat;
-
-}
-
-#about {
-    background:
-        linear-gradient(rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.6)),
-        url(media/about\ us.jfif) center/cover no-repeat;
-
-}
-
-#contact {
-    background:
-        linear-gradient(rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.6)),
-        url(media/contact\ icon.jfif) center/cover no-repeat;
-
-}
-
-.hero2 {
+s .hero2 {
     background:
         linear-gradient(rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.6)),
         url(media/About\ Us\ Photos\,\ Download\ The\ BEST\ Free\ About\ Us….jfif) center/cover no-repeat;
@@ -1061,4 +1051,93 @@ header {
     height: auto;
 
     width: 80px;
+}
+
+.btn {
+    background: var(--primary);
+    color: #ffffff;
+    padding: 14px 34px;
+    border-radius: 40px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background: #178ca1;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(31, 158, 182, 0.35);
+}
+
+.card,
+.service-card,
+.price-card {
+    background: #ffffff;
+    border-radius: 18px;
+    box-shadow: 0 20px 45px rgba(31, 158, 182, 0.08);
+    transition: all 0.3s ease;
+}
+
+.card:hover,
+.service-card:hover,
+.price-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 55px rgba(31, 158, 182, 0.15);
+}
+
+h1,
+h2,
+h3,
+h4 {
+    color: var(--dark);
+}
+
+.home-services h3,
+.location h3,
+.final-cta h3 {
+    color: var(--dark);
+}
+
+.final-cta {
+    background: var(--primary);
+    color: #ffffff;
+    padding: 90px 20px;
+    text-align: center;
+}
+
+.hero2 {
+    min-height: 65vh;
+    padding: 80px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    background:
+        radial-gradient(circle at top right, #BFEAF0 0%, transparent 40%),
+        linear-gradient(135deg, #1F9EB6, #178CA1);
+
+    color: #ffffff;
+}
+
+header {
+    background: #ffffff;
+    border-bottom: 1px solid #e6eef1;
+}
+
+.brand-ul li a {
+    color: var(--dark);
+    font-weight: 600;
+}
+
+.brand-ul li a:hover {
+    color: var(--primary);
+}
+
+.brand-ul li a::after {
+    background: var(--primary);
+}
+
+header {
+    backdrop-filter: blur(10px);
 }
