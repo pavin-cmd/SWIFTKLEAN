@@ -117,11 +117,12 @@ header {
 .hero {
     background:
         linear-gradient(rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.6)),
-        url(media/cleaning\ team.jpg) center/cover no-repeat;
+        url(media/steaming\ process.webp) center/cover no-repeat;
     min-height: 100vh;
     padding: 100px 20px;
     text-align: center;
     color: #ffffff;
+
 }
 
 .hero h2 {
