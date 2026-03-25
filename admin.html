@@ -1,0 +1,47 @@
+<<!DOCTYPE html>
+    <html>
+
+    <head>
+        <title>Admin Panel</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body style="padding:40px">
+
+        <h2>Create Blog Post</h2>
+
+        <input id="title" placeholder="Post Title"><br><br>
+        <input id="image" placeholder="Image URL"><br><br>
+        <textarea id="content" placeholder="Write your post..."></textarea><br><br>
+
+        <button onclick="addPost()">Publish</button>
+
+        <script>
+            function addPost() {
+                const title = document.getElementById("title").value;
+                const image = document.getElementById("image").value;
+                const content = document.getElementById("content").value;
+
+                if (!title || !image || !content) {
+                    alert("Fill all fields!");
+                    return;
+                }
+
+                let posts = JSON.parse(localStorage.getItem("posts")) || [];
+
+                posts.push({ title, image, content });
+
+                localStorage.setItem("posts", JSON.stringify(posts));
+
+                alert("✅ Post published!");
+
+                document.getElementById("title").value = "";
+                document.getElementById("image").value = "";
+                document.getElementById("content").value = "";
+            }
+        </script>
+
+    </body>
+
+    </html>
+    <button onclick="addPost()">Publish</button>

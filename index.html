@@ -47,6 +47,7 @@
                 <li><a href="services.html">Services</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="blog.html">Blog</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
@@ -152,8 +153,30 @@
             Focus on what matters most while we take care of the cleanliness.
         </p>
         <a href="contact.html" class="btn">Get in Touch Today</a>
+
+    </section>
+    <section class="home-blog">
+        <h3>Latest Cleaning Tips</h3>
+
+        <div class="blog-container" id="home-blog"></div>
+
+        <a href="blog.html" class="btn">View All Posts</a>
     </section>
 
+    <script>
+        let posts = JSON.parse(localStorage.getItem("posts")) || [];
+        const homeBlog = document.getElementById("home-blog");
+
+        posts.slice(-3).reverse().forEach((post, index) => {
+            homeBlog.innerHTML += `
+        <div class="blog-card">
+            <img src="${post.image}" class="blog-img">
+            <h4>${post.title}</h4>
+            <a href="post.html?id=${posts.length - 1 - index}">Read More</a>
+        </div>
+    `;
+        });
+    </script>
     <!-- ================= FOOTER ================= -->
     <footer class="footer">
         <div class="footer-container">

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Blog Post</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <section class="post-container">
+        <h1 id="post-title"></h1>
+        <img id="post-image" class="blog-img">
+        <p id="post-content"></p>
+    </section>
+
+    <script>
+        let posts = JSON.parse(localStorage.getItem("posts")) || [];
+
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get("id");
+
+        document.getElementById("post-title").innerText = posts[id].title;
+        document.getElementById("post-content").innerText = posts[id].content;
+        document.getElementById("post-image").src = posts[id].image;
+    </script>
+
+</body>
+
+</html>
