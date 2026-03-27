@@ -163,20 +163,9 @@
         <a href="blog.html" class="btn">View All Posts</a>
     </section>
 
-    <script>
-        let posts = JSON.parse(localStorage.getItem("posts")) || [];
-        const homeBlog = document.getElementById("home-blog");
 
-        posts.slice(-3).reverse().forEach((post, index) => {
-            homeBlog.innerHTML += `
-        <div class="blog-card">
-            <img src="${post.image}" class="blog-img">
-            <h4>${post.title}</h4>
-            <a href="post.html?id=${posts.length - 1 - index}">Read More</a>
-        </div>
-    `;
-        });
-    </script>
+
+
     <!-- ================= FOOTER ================= -->
     <footer class="footer">
         <div class="footer-container">
@@ -243,7 +232,45 @@
     <a href="https://wa.me/0740468860" class="whatsapp-float" target="_blank">
         💬
     </a>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getFirestore, collection, getDocs, query, orderBy, limit } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
+        const firebaseConfig = {
+            apiKey: "AIzaSyDDBByPXyiq1P95RfZYCeeXV6YBuI6FoyYw",
+            authDomain: "swiftklean-blog-2.firebaseapp.com",
+            projectId: "swiftklean-blog-2",
+            storageBucket: "swiftklean-blog-2.firebasestorage.app",
+            messagingSenderId: "227227090206",
+            appId: "1:227227090206:web:10187ddde417afc71e5d0f"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        const homeBlog = document.getElementById("home-blog");
+
+        async function loadHomePosts() {
+            const q = query(collection(db, "posts"), orderBy("created", "desc"), limit(3));
+            const querySnapshot = await getDocs(q);
+
+            homeBlog.innerHTML = "";
+
+            querySnapshot.forEach((doc) => {
+                const post = doc.data();
+
+                homeBlog.innerHTML += `
+            <div class="blog-card">
+                <img src="${post.image}" class="blog-img">
+                <h4>${post.title}</h4>
+                <a href="post.html?id=${doc.id}">Read More</a>
+            </div>
+        `;
+            });
+        }
+
+        loadHomePosts();
+    </script>
 </body>
 
 </html>

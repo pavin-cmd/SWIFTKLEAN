@@ -31,8 +31,60 @@
     </section>
 
     <section class="blog-container" id="blog"></section>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getFirestore } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-    <script src="blog.js"></script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyDDBByPXyiq1P95RfZYCeeXV6YBuI6FoyYw",
+            authDomain: "swiftklean-blog-2.firebaseapp.com",
+            projectId: "swiftklean-blog-2",
+            storageBucket: "swiftklean-blog-2.firebasestorage.app",
+            messagingSenderId: "227227090206",
+            appId: "1:227227090206:web:10187ddde417afc71e5d0f"
+        };
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // make db global
+        window.db = db;
+    </script>
+    <div id="blog-posts"></div>
+
+    <script type="module" src="blog.js"></script>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+        <div class="footer-container">
+
+            <!-- QUICK LINKS -->
+            <div class="footer-links">
+                <h5>Quick Links</h5>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">Why Choose Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- SERVICES -->
+            <div class="footer-links">
+                <h5>Our Services</h5>
+                <ul>
+                    <li>Laundry Services</li>
+                    <li>Home Cleaning</li>
+                    <li>Office Cleaning</li>
+                    <li>Commercial Cleaning</li>
+                </ul>
+            </div>
+
+            <!-- CONTACT -->
+            <div class="footer-contact">
+                <h5>Contact Us</h5>
+                <p>Mbarara, East Gate Complex</p>
+                <p>📞 +256 774 060 185</p>
+                <p>✉️
 </body>
 
 </html>
